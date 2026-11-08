@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'order_summary.dart';
+
 class VegetablePizzaScreen extends StatelessWidget {
   const VegetablePizzaScreen({super.key});
 
@@ -7,8 +9,9 @@ class VegetablePizzaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amberAccent,
         title: const Text('Vegetable Pizza'),
+        backgroundColor: const Color.fromARGB(255, 201, 2, 115),
+        foregroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
@@ -17,6 +20,17 @@ class VegetablePizzaScreen extends StatelessWidget {
             const Text(
               'Vegetable Pizza is a pizza with mixed '
               'vegetable mix on top of it.',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OrderSummaryScreen(),
+                  ),
+                );
+              },
+              child: const Text('View Order Summary'),
             ),
           ],
         ),

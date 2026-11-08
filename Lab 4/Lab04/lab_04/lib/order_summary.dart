@@ -14,19 +14,29 @@ class OrderSummaryScreen extends StatelessWidget {
     final double total = orderTotal(unitPrice: unitPrice, quantity: quantity);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Order Summary')),
-      body: Center(
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
+        foregroundColor: Colors.white,
+        title: const Text('Order Summary'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Item: $itemName'),
+            const SizedBox(height: 8),
             const Text('Quantity: $quantity'),
+            const SizedBox(height: 8),
             Text('Total: RM ${total.toStringAsFixed(2)}'),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Back'),
+            const SizedBox(height: 8),
+            Center(
+              child: FilledButton.tonal(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Back'),
+              ),
             ),
           ],
         ),
